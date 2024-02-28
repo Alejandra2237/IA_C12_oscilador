@@ -13,29 +13,20 @@
 </head>
 <body>
     <center>
-    <h1>Script de Actividad Tres del Alumno:</h1>
+    <h1>Script de Actividad Dos del Alumno:</h1>
     <hr>
-    <h3>Agregar objetos del juego</h3>
+    <h3>Agregar sonido al modelo de entrenamiento</h3>
     <textarea cols='80' rows='13' id="codigo">
 
-    player = createSprite(200,40,20,20);
-    player.addAnimation("mouse",imgMouse);
-    player.addAnimation("imgMouseR",imgMouseReverse);
-    player.scale=0.1;
-    cheese = createSprite(random(20,370),random(60,370),20,20);
-    cheese.addImage("cheese",imgCheese);
-    cheese.scale=0.05;
-    cat = createSprite(random(20,370),random(60,370),20,20);
-    cat.addImage("cat",imgCat);
-    cat.scale=0.15;
-    trap1 = createSprite(20,150,20,20);
-    trap1.addImage("trap",imgTrap);
-    trap1.scale=0.08;
-    trap1.velocityX=2;
-    trap2 = createSprite(380,280,20,20);
-    trap2.addImage("trap",imgTrap);
-    trap2.scale=0.08;
-    trap2.velocityX=2;
+  env = new p5.Envelope();
+  env.setADSR(0.05, 0.1, 0.5, 1);
+  env.setRange(1.2, 0);
+  wave = new p5.Oscillator();
+  
+  wave.setType('sine');
+  wave.start();
+  wave.freq(440);
+  wave.amp(env);
     
         </textarea><br>
         <button type="button" id="copyClip" data-clipboard-target="#codigo">Copiar</button>
